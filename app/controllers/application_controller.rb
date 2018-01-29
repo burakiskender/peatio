@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  protect_from_forgery with: :exception
+  #protect_from_forgery with: :exception
 
   helper_method :current_user, :is_admin?, :current_market, :gon
   before_action :set_timezone, :set_gon
@@ -67,7 +67,7 @@ class ApplicationController < ActionController::Base
 
     gon.pusher = {
       key:       ENV.fetch('PUSHER_KEY', nil),
-      cluster:   ENV.fetch('PUSHER_CLUSTER', 'eu'),
+      cluster:   ENV.fetch('PUSHER_CLUSTER', 'ap1'),
       wsHost:    ENV.fetch('PUSHER_HOST', 'ws.pusherapp.com'),
       wsPort:    ENV.fetch('PUSHER_WS_PORT', 80).to_i,
       wssPort:   ENV.fetch('PUSHER_WSS_PORT', 443).to_i,
